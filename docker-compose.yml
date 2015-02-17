@@ -1,0 +1,15 @@
+web:
+  build: .
+  ports:
+    - "8000:80"
+  links:
+    - db
+  volumes:
+    - .:/code
+db:
+  image: "mysql:5"
+  volumes:
+    - ./mysql:/etc/mysql/conf.d
+  environment:
+    MYSQL_ROOT_PASSWORD: phpapptest
+    MYSQL_DATABASE: phpapp
