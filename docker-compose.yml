@@ -6,6 +6,13 @@ web:
     - db
   volumes:
     - .:/code
+phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    restart: always
+    ports:
+     - 8080:80
+    links:
+      - db
 db:
   image: "mysql:5"
   volumes:
